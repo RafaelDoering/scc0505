@@ -1,5 +1,6 @@
 export default class Automaton {
-  private numberOfStates: number;
+  // eslint-disable-next-line @typescript-eslint/no-inferrable-types
+  private numberOfStates: number = 0;
   private terminalSymbols: string[] = [];
   private initialStates: number[] = [0];
   private acceptanceStates: number[] = [];
@@ -38,6 +39,10 @@ export default class Automaton {
   private isAccepted(initialState: number, chain: string): boolean {
     const characters = chain.split('');
     let currentState = initialState;
+
+    if (characters[0] === '-') {
+      return this.acceptanceStates.includes(currentState);
+    }
 
     for (const currentCharacter of characters) {
       const transiction = this.transitions.find(({ start, character }) => {
