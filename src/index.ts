@@ -12,9 +12,9 @@ async function main(): Promise<void> {
 
   for (const chain of chains) {
     if (automaton.processChain(chain)) {
-      console.log("rejeita");
-    } else {
       console.log("aceita");
+    } else {
+      console.log("rejeita");
     }
   }
 }
