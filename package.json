@@ -6,6 +6,9 @@
   "scripts": {
     "start": "node ./build/index.js",
     "dev": "nodemon ./src/index.ts",
+    "build": "tsc",
+    "build-mac": "npm run build | nexe ./build/index.js --target=mac-x64-12.3.1",
+    "build-windows": "npm run build | nexe ./build/index.js --target=win32-x86-10.13.0",
     "test": "jest",
     "lint": "eslint --ext .js,.ts .",
     "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\""
@@ -21,6 +24,7 @@
     "eslint-config-google": "^0.14.0",
     "eslint-config-prettier": "^8.5.0",
     "jest": "^28.0.3",
+    "nexe": "^4.0.0-beta.19",
     "nodemon": "^2.0.16",
     "prettier": "^2.6.2",
     "ts-jest": "^28.0.1",
